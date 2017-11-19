@@ -106,12 +106,12 @@ public class GroupsAPI {
 			try{
 				core.getMySQL().update("INSERT INTO groupdata(ID, Name, Permissions, Prefix, ChatColor, Value) VALUES ('0', '" + groupName + "', '', '', '', '"+value+"');");
 				permissions.put(groupName, new ArrayList<String>());
-				cs.sendMessage(new TextComponent(core.getPrefix() + "Â§aYou've just created a new group."));
+				cs.sendMessage(new TextComponent(core.getPrefix() + "§aYou've just created a new group."));
 			}catch(Exception ex) {
-				cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cSomething went wrong while creating a new group."));
+				cs.sendMessage(new TextComponent(core.getPrefix() + "§cSomething went wrong while creating a new group."));
 			}
 		}else{
-			cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cThis group already exists."));
+			cs.sendMessage(new TextComponent(core.getPrefix() + "§cThis group already exists."));
 		}
 	}
 	
@@ -124,9 +124,9 @@ public class GroupsAPI {
 			}
 			permissions.remove(groupName, permissions.get(groupName));
 			core.getMySQL().update("DELETE FROM groupdata WHERE Name='" + groupName + "';");
-			cs.sendMessage(new TextComponent(core.getPrefix() + "Â§aGroup successfully removed."));
+			cs.sendMessage(new TextComponent(core.getPrefix() + "§aGroup successfully removed."));
 		}else{
-			cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cGroup does not exist."));
+			cs.sendMessage(new TextComponent(core.getPrefix() + "§cGroup does not exist."));
 		}
 	}
 	
@@ -138,16 +138,16 @@ public class GroupsAPI {
 					String pg = getRawPlayerGroups(playerUUID);
 					pg += group + ";";
 					core.getMySQL().set("playerdata", "Groups", pg, "UUID", playerUUID);
-					ProxyServer.getInstance().getPlayer(UUID.fromString(playerUUID)).sendMessage(new TextComponent(core.getPrefix() + "Â§aYou were added to the group Â§7" + group + "Â§a. Â§cÂ§lPlease rejoin now."));
+					ProxyServer.getInstance().getPlayer(UUID.fromString(playerUUID)).sendMessage(new TextComponent(core.getPrefix() + "§aYou were added to the group §7" + group + "§a. §c§lPlease rejoin now."));
 				}catch(Exception ex) {
-					cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cSomething went wrong while adding player to the group."));
+					cs.sendMessage(new TextComponent(core.getPrefix() + "§cSomething went wrong while adding player to the group."));
 					ex.printStackTrace();
 				}
 			}else{
-				cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cUser already belongs to that group."));
+				cs.sendMessage(new TextComponent(core.getPrefix() + "§cUser already belongs to that group."));
 			}
 		}else{
-			cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cGroup does not exist."));
+			cs.sendMessage(new TextComponent(core.getPrefix() + "§cGroup does not exist."));
 		}
 	}
 	
@@ -157,12 +157,12 @@ public class GroupsAPI {
 			if(getRawPlayerGroups(playerUUID).contains(group)) {
 				String pg = getRawPlayerGroups(playerUUID).replace(group + ";", "");
 				core.getMySQL().set("playerdata", "Groups", pg, "UUID", playerUUID);
-				ProxyServer.getInstance().getPlayer(UUID.fromString(playerUUID)).sendMessage(new TextComponent(core.getPrefix() + "Â§aYou were removed from the group Â§7" + group + "Â§a. Â§cÂ§lPlease rejoin now."));
+				ProxyServer.getInstance().getPlayer(UUID.fromString(playerUUID)).sendMessage(new TextComponent(core.getPrefix() + "§aYou were removed from the group §7" + group + "§a. §c§lPlease rejoin now."));
 			}else{
-				if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cUser does not belong to that group yet."));
+				if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "§cUser does not belong to that group yet."));
 			}
 		}else{
-			if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cGroup does not exist."));
+			if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "§cGroup does not exist."));
 		}
 	}
 	
@@ -177,16 +177,16 @@ public class GroupsAPI {
 					np.add(permission);
 					permissions.replace(group, p, np);
 					core.getMySQL().set("groupdata", "Permissions", toRawString(np), "Name", group);
-					if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "Â§aPermission added!"));
+					if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "§aPermission added!"));
 				}catch(Exception ex) {
-					if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cSomething went wrong while adding permission to a group."));
+					if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "§cSomething went wrong while adding permission to a group."));
 					ex.printStackTrace();
 				}
 			}else{
-				if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cGroup already contains that permission."));
+				if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "§cGroup already contains that permission."));
 			}
 		}else{
-			if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cGroup does not exist."));
+			if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "§cGroup does not exist."));
 		}
 	}
 	
@@ -201,16 +201,16 @@ public class GroupsAPI {
 					np.remove(permission);
 					permissions.replace(group, p, np);
 					core.getMySQL().set("groupdata", "Permissions", toRawString(np), "Name", group);
-					if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "Â§aPermission removed!"));
+					if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "§aPermission removed!"));
 				}catch(Exception ex) {
-					if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cSomething went wrong while removing permission from a group."));
+					if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "§cSomething went wrong while removing permission from a group."));
 					ex.printStackTrace();
 				}
 			}else{
-				if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cGroup does not contain that permission yet."));
+				if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "§cGroup does not contain that permission yet."));
 			}
 		}else{
-			if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cGroup does not exist."));
+			if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "§cGroup does not exist."));
 		}
 	}
 	
@@ -230,13 +230,13 @@ public class GroupsAPI {
 		if(groupExists(group)) {
 			try{
 				core.getMySQL().set("groupdata", "Prefix", newPrefix, "Name", group);
-				if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "Â§aPrefix successfully updated!"));
+				if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "§aPrefix successfully updated!"));
 			}catch(Exception ex) {
-				if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "Â§aSomething went wrong while setting a new prefix."));
+				if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "§aSomething went wrong while setting a new prefix."));
 				ex.printStackTrace();
 			}
 		}else{
-			if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cGroup does not exist."));
+			if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "§cGroup does not exist."));
 		}
 	}
 	
@@ -248,13 +248,13 @@ public class GroupsAPI {
 		if(groupExists(group)) {
 			try{
 				core.getMySQL().set("groupdata", "ChatColor", newChatColor, "Name", group);
-				if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "Â§aChatColor successfully updated!"));
+				if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "§aChatColor successfully updated!"));
 			}catch(Exception ex) {
-				if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "Â§aSomething went wrong while setting a new chat color."));
+				if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "§aSomething went wrong while setting a new chat color."));
 				ex.printStackTrace();
 			}
 		}else{
-			if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cGroup does not exist."));
+			if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "§cGroup does not exist."));
 		}
 	}
 	
@@ -262,13 +262,13 @@ public class GroupsAPI {
 		if(groupExists(group)) {
 			try{
 				core.getMySQL().set("groupdata", "Value", value, "Name", group);
-				if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "Â§aValue successfully updated!"));
+				if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "§aValue successfully updated!"));
 			}catch(Exception ex) {
-				if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "Â§aSomething went wrong while setting a new value."));
+				if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "§aSomething went wrong while setting a new value."));
 				ex.printStackTrace();
 			}
 		}else{
-			if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cGroup does not exist."));
+			if(cs != null) cs.sendMessage(new TextComponent(core.getPrefix() + "§cGroup does not exist."));
 		}
 	}
 	
@@ -288,16 +288,16 @@ public class GroupsAPI {
 	}
 	
 	public void sendHelp(CommandSender cs) {
-		cs.sendMessage(new TextComponent("Â§7Â§m-------------------=Â§bÂ§m[Â§r Â§6Â§lGROUPS Â§bÂ§m]Â§7Â§m=-------------------"));
-		cs.sendMessage(new TextComponent("Â§eâ— Â§a/group create <name> <value> Â§e - Â§7Creates a new group with Â§7a given value."));
-		cs.sendMessage(new TextComponent("Â§eâ— Â§a/group remove <name> Â§e - Â§7Completely removes the existing Â§7group."));
-		cs.sendMessage(new TextComponent("Â§eâ— Â§a/group addplayer <name> <player> Â§e - Â§7Adds player to the Â§7group."));
-		cs.sendMessage(new TextComponent("Â§eâ— Â§a/group removeplayer <name> <player> Â§e - Â§7Removes player Â§7from the group."));
-		cs.sendMessage(new TextComponent("Â§eâ— Â§a/group addperm <name> <permission> Â§e - Â§7Adds permission to Â§7the group."));
-		cs.sendMessage(new TextComponent("Â§eâ— Â§a/group remperm <name> <permission> Â§e - Â§7Removes permission Â§7from the group."));
-		cs.sendMessage(new TextComponent("Â§eâ— Â§a/group setprefix <name> <prefix> Â§e - Â§7Sets group's prefix."));
-		cs.sendMessage(new TextComponent("Â§eâ— Â§a/group setchatcolor <name> <color> Â§e - Â§7Sets group's chat color."));
-		cs.sendMessage(new TextComponent("Â§eâ— Â§a/group setvalue <name> <value> Â§e - Â§7Sets group's value."));
+		cs.sendMessage(new TextComponent("§7§m-------------------=§b§m[§r §6§lGROUPS §b§m]§7§m=-------------------"));
+		cs.sendMessage(new TextComponent("§e— §a/group create <name> <value> §e - §7Creates a new group with §7a given value."));
+		cs.sendMessage(new TextComponent("§e— §a/group remove <name> §e - §7Completely removes the existing §7group."));
+		cs.sendMessage(new TextComponent("§e— §a/group addplayer <name> <player> §e - §7Adds player to the §7group."));
+		cs.sendMessage(new TextComponent("§e— §a/group removeplayer <name> <player> §e - §7Removes player §7from the group."));
+		cs.sendMessage(new TextComponent("§e— §a/group addperm <name> <permission> §e - §7Adds permission to §7the group."));
+		cs.sendMessage(new TextComponent("§e— §a/group remperm <name> <permission> §e - §7Removes permission §7from the group."));
+		cs.sendMessage(new TextComponent("§e— §a/group setprefix <name> <prefix> §e - §7Sets group's prefix."));
+		cs.sendMessage(new TextComponent("§e— §a/group setchatcolor <name> <color> §e - §7Sets group's chat color."));
+		cs.sendMessage(new TextComponent("§e— §a/group setvalue <name> <value> §e - §7Sets group's value."));
 	}
 	
 	public List<String> getPlayersInGroup(String group) {

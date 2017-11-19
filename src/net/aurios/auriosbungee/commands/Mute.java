@@ -7,11 +7,11 @@ import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;
 
-public class Warn extends Command {
-	
+public class Mute extends Command {
+
 	AuriosBungee core;
-	public Warn(AuriosBungee core) {
-		super("warn");
+	public Mute(AuriosBungee core) {
+		super("mute");
 		this.core = core;
 	}
 
@@ -29,7 +29,7 @@ public class Warn extends Command {
 					reason += args[i] + " ";
 				}
 				reason = reason.substring(0, 1).toUpperCase() + reason.substring(1).toLowerCase();
-				core.getPunishmentAPI().punish(c, PunishmentType.WARN, uuid, 0, null, reason);
+				core.getPunishmentAPI().punish(c, PunishmentType.MUTE, uuid, 0, null, reason);
 			}else{
 				c.sendMessage(new TextComponent(core.getPrefix() + "§cThis player is not online."));
 			}

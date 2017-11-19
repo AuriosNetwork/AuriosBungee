@@ -19,43 +19,43 @@ public class Group extends Command {
 			core.getGroupsAPI().sendHelp(cs);
 		}else if(args.length == 1) {
 			if(args[0].equalsIgnoreCase("create")) {
-				cs.sendMessage(new TextComponent("Â§7----------------------------------------"));
-				cs.sendMessage(new TextComponent("Â§eâ— Â§a/group create <name> <value> Â§e - Â§7Creates a new group with Â§7a given value."));
-				cs.sendMessage(new TextComponent("Â§7----------------------------------------"));
+				cs.sendMessage(new TextComponent("§7----------------------------------------"));
+				cs.sendMessage(new TextComponent("§e— §a/group create <name> <value> §e - §7Creates a new group with §7a given value."));
+				cs.sendMessage(new TextComponent("§7----------------------------------------"));
 			}else if(args[0].equalsIgnoreCase("remove")) {
-				cs.sendMessage(new TextComponent("Â§7----------------------------------------"));
-				cs.sendMessage(new TextComponent("Â§eâ— Â§a/group remove <name> Â§e - Â§7Completely removes the existing Â§7group."));
-				cs.sendMessage(new TextComponent("Â§7----------------------------------------"));
+				cs.sendMessage(new TextComponent("§7----------------------------------------"));
+				cs.sendMessage(new TextComponent("§e— §a/group remove <name> §e - §7Completely removes the existing §7group."));
+				cs.sendMessage(new TextComponent("§7----------------------------------------"));
 			}else if(args[0].equalsIgnoreCase("addplayer")) {
-				cs.sendMessage(new TextComponent("Â§7----------------------------------------"));
-				cs.sendMessage(new TextComponent("Â§eâ— Â§a/group addplayer <name> <player> Â§e - Â§7Adds player to the Â§7group."));
-				cs.sendMessage(new TextComponent("Â§7----------------------------------------"));
+				cs.sendMessage(new TextComponent("§7----------------------------------------"));
+				cs.sendMessage(new TextComponent("§e— §a/group addplayer <name> <player> §e - §7Adds player to the §7group."));
+				cs.sendMessage(new TextComponent("§7----------------------------------------"));
 			}else if(args[0].equalsIgnoreCase("removeplayer")) {
-				cs.sendMessage(new TextComponent("Â§7----------------------------------------"));
-				cs.sendMessage(new TextComponent("Â§eâ— Â§a/group removeplayer <name> <player> Â§e - Â§7Removes player Â§7from the group."));
-				cs.sendMessage(new TextComponent("Â§7----------------------------------------"));
+				cs.sendMessage(new TextComponent("§7----------------------------------------"));
+				cs.sendMessage(new TextComponent("§e— §a/group removeplayer <name> <player> §e - §7Removes player §7from the group."));
+				cs.sendMessage(new TextComponent("§7----------------------------------------"));
 			}else if(args[0].equalsIgnoreCase("addperm")) {
-				cs.sendMessage(new TextComponent("Â§7----------------------------------------"));
-				cs.sendMessage(new TextComponent("Â§eâ— Â§a/group addperm <name> <permission> Â§e - Â§7Adds permission to Â§7the group."));
-				cs.sendMessage(new TextComponent("Â§7----------------------------------------"));
+				cs.sendMessage(new TextComponent("§7----------------------------------------"));
+				cs.sendMessage(new TextComponent("§e— §a/group addperm <name> <permission> §e - §7Adds permission to §7the group."));
+				cs.sendMessage(new TextComponent("§7----------------------------------------"));
 			}else if(args[0].equalsIgnoreCase("remperm")) {
-				cs.sendMessage(new TextComponent("Â§7----------------------------------------"));
-				cs.sendMessage(new TextComponent("Â§eâ— Â§a/group remperm <name> <permission> Â§e - Â§7Removes permission Â§7from the group."));
-				cs.sendMessage(new TextComponent("Â§7----------------------------------------"));
+				cs.sendMessage(new TextComponent("§7----------------------------------------"));
+				cs.sendMessage(new TextComponent("§e— §a/group remperm <name> <permission> §e - §7Removes permission §7from the group."));
+				cs.sendMessage(new TextComponent("§7----------------------------------------"));
 			}else if(args[0].equalsIgnoreCase("setprefix")) {
-				cs.sendMessage(new TextComponent("Â§7----------------------------------------"));
-				cs.sendMessage(new TextComponent("Â§eâ— Â§a/group setprefix <name> <prefix> Â§e - Â§7Sets group's prefix."));
-				cs.sendMessage(new TextComponent("Â§7----------------------------------------"));
+				cs.sendMessage(new TextComponent("§7----------------------------------------"));
+				cs.sendMessage(new TextComponent("§e— §a/group setprefix <name> <prefix> §e - §7Sets group's prefix."));
+				cs.sendMessage(new TextComponent("§7----------------------------------------"));
 			}else if(args[0].equalsIgnoreCase("setchatcolor")) {
-				cs.sendMessage(new TextComponent("Â§7----------------------------------------"));
-				cs.sendMessage(new TextComponent("Â§eâ— Â§a/group setchatcolor <name> <color> Â§e - Â§7Sets group's chat color."));
-				cs.sendMessage(new TextComponent("Â§7----------------------------------------"));
+				cs.sendMessage(new TextComponent("§7----------------------------------------"));
+				cs.sendMessage(new TextComponent("§e— §a/group setchatcolor <name> <color> §e - §7Sets group's chat color."));
+				cs.sendMessage(new TextComponent("§7----------------------------------------"));
 			}else if(args[0].equalsIgnoreCase("setvalue")) {
-				cs.sendMessage(new TextComponent("Â§7----------------------------------------"));
-				cs.sendMessage(new TextComponent("Â§eâ— Â§a/group setvalue <name> <value> Â§e - Â§7Sets group's value."));
-				cs.sendMessage(new TextComponent("Â§7----------------------------------------"));
+				cs.sendMessage(new TextComponent("§7----------------------------------------"));
+				cs.sendMessage(new TextComponent("§e— §a/group setvalue <name> <value> §e - §7Sets group's value."));
+				cs.sendMessage(new TextComponent("§7----------------------------------------"));
 			}else{
-				cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cUnknown sub-command. Please use /group Â§cto display detailed help."));
+				cs.sendMessage(new TextComponent(core.getPrefix() + "§cUnknown sub-command. Please use /group §cto display detailed help."));
 			}
 		}else if(args.length == 2) {
 			if(args[0].equalsIgnoreCase("remove")) {
@@ -63,7 +63,7 @@ public class Group extends Command {
 				if(core.getGroupsAPI().hasPermission(cs, "auriosbungee.groups.group.remove")) {
 					core.getGroupsAPI().removeGroup(cs, name);
 				}else{
-					cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cSorry, but you are not allowed to do that."));
+					cs.sendMessage(new TextComponent(core.getPrefix() + "§cSorry, but you are not allowed to do that."));
 				}
 			}else{
 				core.getGroupsAPI().sendHelp(cs);
@@ -77,10 +77,10 @@ public class Group extends Command {
 						value = Integer.parseInt(args[2]);
 						core.getGroupsAPI().createNewGroup(cs, name, value);
 					}catch(NumberFormatException ex) {
-						cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cValue must be a number (1-99). Higher Â§crank means higher value!"));
+						cs.sendMessage(new TextComponent(core.getPrefix() + "§cValue must be a number (1-99). Higher §crank means higher value!"));
 					}
 				}else{
-					cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cSorry, but you are not allowed to do that."));
+					cs.sendMessage(new TextComponent(core.getPrefix() + "§cSorry, but you are not allowed to do that."));
 				}
 			}else if(args[0].equalsIgnoreCase("addplayer")) {
 				if(core.getGroupsAPI().hasPermission(cs, "auriosbungee.groups.group.addplayer")) {
@@ -90,10 +90,10 @@ public class Group extends Command {
 					if(uuid != null && !uuid.isEmpty()) {
 						core.getGroupsAPI().addPlayerToGroup(cs, name, uuid);
 					}else{
-						cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cIt seems like that player has never joined Â§cour network."));
+						cs.sendMessage(new TextComponent(core.getPrefix() + "§cIt seems like that player has never joined §cour network."));
 					}
 				}else{
-					cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cSorry, but you are not allowed to do that."));
+					cs.sendMessage(new TextComponent(core.getPrefix() + "§cSorry, but you are not allowed to do that."));
 				}
 			}else if(args[0].equalsIgnoreCase("removeplayer")) {
 				if(core.getGroupsAPI().hasPermission(cs, "auriosbungee.groups.group.removeplayer")) {
@@ -103,10 +103,10 @@ public class Group extends Command {
 					if(uuid != null && !uuid.isEmpty()) {
 						core.getGroupsAPI().removePlayerFromGroup(cs, name, uuid);
 					}else{
-						cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cIt seems like that player has never joined Â§cour network."));
+						cs.sendMessage(new TextComponent(core.getPrefix() + "§cIt seems like that player has never joined §cour network."));
 					}
 				}else{
-					cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cSorry, but you are not allowed to do that."));
+					cs.sendMessage(new TextComponent(core.getPrefix() + "§cSorry, but you are not allowed to do that."));
 				}
 			}else if(args[0].equalsIgnoreCase("addperm")) {
 				if(core.getGroupsAPI().hasPermission(cs, "auriosbungee.groups.group.addperm")) {
@@ -114,7 +114,7 @@ public class Group extends Command {
 					String perm = args[2];
 					core.getGroupsAPI().addPermissionToTheGroup(cs, group, perm);
 				}else{
-					cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cSorry, but you are not allowed to do that."));
+					cs.sendMessage(new TextComponent(core.getPrefix() + "§cSorry, but you are not allowed to do that."));
 				}
 			}else if(args[0].equalsIgnoreCase("remperm")) {
 				if(core.getGroupsAPI().hasPermission(cs, "auriosbungee.groups.group.remperm")) {
@@ -122,7 +122,7 @@ public class Group extends Command {
 					String perm = args[2];
 					core.getGroupsAPI().removePermissionFromTheGroup(cs, group, perm);
 				}else{
-					cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cSorry, but you are not allowed to do that."));
+					cs.sendMessage(new TextComponent(core.getPrefix() + "§cSorry, but you are not allowed to do that."));
 				}
 			}else if(args[0].equalsIgnoreCase("setprefix")) {
 				if(core.getGroupsAPI().hasPermission(cs, "auriosbungee.groups.group.setprefix")) {
@@ -130,7 +130,7 @@ public class Group extends Command {
 					String prefix = args[2];
 					core.getGroupsAPI().setPrefix(cs, group, prefix);
 				}else{
-					cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cSorry, but you are not allowed to do that."));
+					cs.sendMessage(new TextComponent(core.getPrefix() + "§cSorry, but you are not allowed to do that."));
 				}
 			}else if(args[0].equalsIgnoreCase("setchatcolor")) {
 				if(core.getGroupsAPI().hasPermission(cs, "auriosbungee.groups.group.setchatcolor")) {
@@ -138,7 +138,7 @@ public class Group extends Command {
 					String chatcolor = args[2];
 					core.getGroupsAPI().setPrefix(cs, group, chatcolor);
 				}else{
-					cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cSorry, but you are not allowed to do that."));
+					cs.sendMessage(new TextComponent(core.getPrefix() + "§cSorry, but you are not allowed to do that."));
 				}
 			}else if(args[0].equalsIgnoreCase("setvalue")) {
 				if(core.getGroupsAPI().hasPermission(cs, "auriosbungee.groups.group.setvalue")) {
@@ -148,11 +148,11 @@ public class Group extends Command {
 						value = Integer.parseInt(args[2]);
 						core.getGroupsAPI().setValue(cs, group, value);
 					}catch(NumberFormatException ex) {
-						cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cValue must be a number (1-99). Higher Â§crank means higher value!"));
+						cs.sendMessage(new TextComponent(core.getPrefix() + "§cValue must be a number (1-99). Higher §crank means higher value!"));
 						ex.printStackTrace();
 					}
 				}else{
-					cs.sendMessage(new TextComponent(core.getPrefix() + "Â§cSorry, but you are not allowed to do that."));
+					cs.sendMessage(new TextComponent(core.getPrefix() + "§cSorry, but you are not allowed to do that."));
 				}
 			}else{
 				core.getGroupsAPI().sendHelp(cs);
